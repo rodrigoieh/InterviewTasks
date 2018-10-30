@@ -19,7 +19,8 @@ public class CyclicExecutorMain {
 			service = Executors.newFixedThreadPool(NUMBER_OF_THREADS);
 			
 			Future<Integer> sumFuture = service.submit(() -> {
-				int c = 3 + 3; // or fuck yourself to do something more complicated
+				int c = 3 + 3; // to do something more complicated.
+				Thread.sleep(3000);
 				cb.await();
 				System.out.println("Thread - 1");
 				return c;
@@ -27,6 +28,7 @@ public class CyclicExecutorMain {
 			
 			Future<Integer> diffFuture = service.submit(() -> {
 				int g = 45 + 86;
+				Thread.sleep(8000);
 				cb.await();
 				System.out.println("Thread - 2");
 				return g;
