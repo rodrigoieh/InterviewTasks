@@ -34,6 +34,8 @@ public class FileReader {
 		.entrySet().stream().max(Map.Entry.comparingByValue()).get().getValue();
 		 
 		 System.out.println("Max2 =" + m2);
+		 
+		 bands.close();
 	}
 
 }
