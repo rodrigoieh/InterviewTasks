@@ -1,0 +1,287 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- Ant buildfile for Readerboard Application -->
+<!-- author: Vasyl Andrushchak, October 10, 2012 -->
+<project xmlns="antlib:org.apache.tools.ant" name="ReaderBoard" default="all" basedir=".">
+    <property file="build.properties"/>
+    <path id="library.Activation.jar">
+        <pathelement location="lib/activation.jar"/>
+    </path>
+    <path id="library.Activemq-all-5.5.1.jar">
+        <pathelement location="lib/activemq-all-5.5.1.jar"/>
+    </path>
+    <path id="library.Antlr-2.7.7.jar">
+        <pathelement location="lib/antlr-2.7.7.jar"/>
+    </path>
+    <path id="library.Commons-collections-3.2.1.jar">
+        <pathelement location="lib/commons-collections-3.2.1.jar"/>
+    </path>
+    <path id="library.Commons-httpclient-3.0.1.jar">
+        <pathelement location="lib/commons-httpclient-3.0.1.jar"/>
+    </path>
+    <path id="library.Commons-logging-1.1.1.jar">
+        <pathelement location="lib/commons-logging-1.1.1.jar"/>
+    </path>
+    <path id="library.Commons-logging-adapters-1.1.1.jar">
+        <pathelement location="lib/commons-logging-adapters-1.1.1.jar"/>
+    </path>
+    <path id="library.Eclipselink-jpa-modelgen_2.4.0.v20120608-r11652.jar">
+        <pathelement location="lib/eclipselink-jpa-modelgen_2.4.0.v20120608-r11652.jar"/>
+    </path>
+    <path id="library.Eclipselink.jar">
+        <pathelement location="lib/eclipselink.jar"/>
+    </path>
+    <path id="library.Javax.persistence_1.0.0.jar">
+        <pathelement location="lib/javax.persistence_1.0.0.jar"/>
+    </path>
+    <path id="library.Javax.persistence_2.0.4.v201112161009.jar">
+        <pathelement location="lib/javax.persistence_2.0.4.v201112161009.jar"/>
+    </path>
+    <path id="library.Ojdbc6.jar">
+        <pathelement location="lib/ojdbc6.jar"/>
+    </path>
+    <path id="library.Org.eclipse.persistence.jpars_2.4.0.v20120608-r11652.jar">
+        <pathelement location="lib/org.eclipse.persistence.jpars_2.4.0.v20120608-r11652.jar"/>
+    </path>
+    <path id="library.Dom4j-1.6.1.jar">
+        <pathelement location="lib/dom4j-1.6.1.jar"/>
+    </path>
+    <path id="library.Httpclient-4.1-beta1.jar">
+        <pathelement location="lib/httpclient-4.1-beta1.jar"/>
+    </path>
+    <path id="library.Httpcore-4.1.3.jar">
+        <pathelement location="lib/httpcore-4.1.3.jar"/>
+    </path>
+    <path id="library.Javassist-3.15.0-GA.jar">
+        <pathelement location="lib/javassist-3.15.0-GA.jar"/>
+    </path>
+    <path id="library.Log4j-1.2.15.jar">
+        <pathelement location="lib/log4j-1.2.15.jar"/>
+    </path>
+    <path id="library.Org.springframework.asm-3.1.0.RELEASE.jar">
+        <pathelement location="lib/org.springframework.asm-3.1.0.RELEASE.jar"/>
+    </path>
+    <path id="library.Org.springframework.beans-3.1.0.RELEASE.jar">
+        <pathelement location="lib/org.springframework.beans-3.1.0.RELEASE.jar"/>
+    </path>
+    <path id="library.Org.springframework.context-3.1.0.RELEASE.jar">
+        <pathelement location="lib/org.springframework.context-3.1.0.RELEASE.jar"/>
+    </path>
+    <path id="library.Org.springframework.core-3.1.0.RELEASE.jar">
+        <pathelement location="lib/org.springframework.core-3.1.0.RELEASE.jar"/>
+    </path>
+    <path id="library.Org.springframework.expression-3.1.0.RELEASE.jar">
+        <pathelement location="lib/org.springframework.expression-3.1.0.RELEASE.jar"/>
+    </path>
+    <path id="library.Slf4j-log4j12-1.5.0.jar">
+        <pathelement location="lib/slf4j-log4j12-1.5.0.jar"/>
+    </path>
+    <path id="library.Slf4j-simple-1.5.11.jar">
+        <pathelement location="lib/slf4j-simple-1.5.11.jar"/>
+    </path>
+    <path id="library.Org.springframework.orm-3.1.1.RELEASE.jar">
+        <pathelement location="../../../Installs/spring-framework-3.1.1.RELEASE-with-docs/spring-framework-3.1.1.RELEASE/dist/org.springframework.orm-3.1.1.RELEASE.jar"/>
+    </path>
+    <path id="library.Org.springframework.transaction-3.1.1.RELEASE.jar">
+        <pathelement location="../../../Installs/spring-framework-3.1.1.RELEASE-with-docs/spring-framework-3.1.1.RELEASE/dist/org.springframework.transaction-3.1.1.RELEASE.jar"/>
+    </path>
+    <path id="library.Org.springframework.aspects-3.1.1.RELEASE.jar">
+        <pathelement location="../../../Installs/spring-framework-3.1.1.RELEASE-with-docs/spring-framework-3.1.1.RELEASE/dist/org.springframework.aspects-3.1.1.RELEASE.jar"/>
+    </path>
+    <path id="library.Arbuzagent.jar">
+        <pathelement location="lib/arbuzagent.jar"/>
+    </path>
+    <path id="classpath">
+        <path refid="library.Activation.jar"/>
+        <path refid="library.Activemq-all-5.5.1.jar"/>
+        <path refid="library.Antlr-2.7.7.jar"/>
+        <path refid="library.Commons-collections-3.2.1.jar"/>
+        <path refid="library.Commons-httpclient-3.0.1.jar"/>
+        <path refid="library.Commons-logging-1.1.1.jar"/>
+        <path refid="library.Commons-logging-adapters-1.1.1.jar"/>
+        <path refid="library.Eclipselink-jpa-modelgen_2.4.0.v20120608-r11652.jar"/>
+        <path refid="library.Eclipselink.jar"/>
+        <path refid="library.Javax.persistence_1.0.0.jar"/>
+        <path refid="library.Javax.persistence_2.0.4.v201112161009.jar"/>
+        <path refid="library.Ojdbc6.jar"/>
+        <path refid="library.Org.eclipse.persistence.jpars_2.4.0.v20120608-r11652.jar"/>
+        <path refid="library.Dom4j-1.6.1.jar"/>
+        <path refid="library.Httpclient-4.1-beta1.jar"/>
+        <path refid="library.Httpcore-4.1.3.jar"/>
+        <path refid="library.Javassist-3.15.0-GA.jar"/>
+        <path refid="library.Log4j-1.2.15.jar"/>
+        <path refid="library.Org.springframework.asm-3.1.0.RELEASE.jar"/>
+        <path refid="library.Org.springframework.beans-3.1.0.RELEASE.jar"/>
+        <path refid="library.Org.springframework.context-3.1.0.RELEASE.jar"/>
+        <path refid="library.Org.springframework.core-3.1.0.RELEASE.jar"/>
+        <path refid="library.Org.springframework.expression-3.1.0.RELEASE.jar"/>
+        <path refid="library.Slf4j-log4j12-1.5.0.jar"/>
+        <path refid="library.Slf4j-simple-1.5.11.jar"/>
+        <path refid="library.Org.springframework.orm-3.1.1.RELEASE.jar"/>
+        <path refid="library.Org.springframework.transaction-3.1.1.RELEASE.jar"/>
+        <path refid="library.Org.springframework.aspects-3.1.1.RELEASE.jar"/>
+        <path refid="library.Arbuzagent.jar"/>
+    </path>
+    <!-- =================================================================== -->
+    <!-- Tip for dummies ;)                                                  -->
+    <!-- =================================================================== -->
+    <target name="help" description="Show deployment options">
+        <echo> ant clean - clean generated files i.e. before submit into SVN</echo>
+        <echo> ant dev   - build Development deployment</echo>
+        <echo> ant prod  - build Production deployment</echo>
+        <echo> ant ide   - Moves dev config files to work with Java IDE</echo>
+        <echo>             Add all library references in IDE yourself</echo>
+        <echo> ant svn   - Removes configuration files after development to avoid</echo>
+        <echo>             duplication in SVN. Use togerther with [clean] option</echo>
+    </target>
+    <!-- =================================================================== -->
+    <!-- Middle step - Creates required folders                              -->
+    <!-- =================================================================== -->
+    <target name="init" description="Create initial folders for deployment files">
+        <tstamp/>
+        <mkdir dir="${output.dir}"/>
+        <mkdir dir="${output.jar}"/>
+        <mkdir dir="${output.lib}"/>
+        <mkdir dir="${output.meta}"/>
+    </target>
+    <!-- =================================================================== -->
+    <!-- Middle step - Creates a required persistence.xml file               -->
+    <!-- =================================================================== -->
+    <target name="devmeta" description="Copy of persistence.xml file into classpath">
+        <copy file="${basedir}/src/conf/dev-persistence.xml" tofile="${output.dir}/META-INF/persistence.xml"
+              overwrite="true"/>
+    </target>
+    <target name="prodmeta" description="Copy of persistence.xml file into classpath">
+        <copy file="${basedir}/src/conf/prod-persistence.xml" tofile="${output.dir}/META-INF/persistence.xml"
+              overwrite="true"/>
+    </target>
+    <!-- =================================================================== -->
+    <!-- Deletes all deployeable files and folders                           -->
+    <!-- =================================================================== -->
+    <target name="clean" description="Clean the project">
+        <delete includeemptydirs="true" quiet="true">
+            <fileset dir="${output.dir}" includes="**/*"/>
+            <fileset dir="${output.lib}" includes="**/*"/>
+            <fileset dir="${output.jar}" includes="**/*"/>
+        </delete>
+        <delete dir="${output.dir}"/>
+        <delete dir="${output.jar}"/>
+    </target>
+    <!-- =================================================================== -->
+    <!-- Common for all enviroments                                          -->
+    <!-- =================================================================== -->
+    <target name="compile" description="Compile Java source files" depends="init">
+        <javac destdir="${output.dir}" classpathref="classpath" debug="${javac.debug}" nowarn="${javac.nowarn}"
+               deprecation="${javac.deprecation}" encoding="UTF-8" source="1.6" target="1.6">
+            <compilerarg value="-Aeclipselink.persistencexml=${basedir}\src\META-INF\persistence.xml"
+                         compiler="javac1.6"/>
+            <src path="src"/>
+        </javac>
+    </target>
+    <!-- =================================================================== -->
+    <!-- Middle step - Creates required folders                              -->
+    <!-- =================================================================== -->
+    <target name="copy" description="do not use this option" depends="init">
+        <patternset id="copy.patterns">
+            <include name="**/*.properties"/>
+            <include name="**/*.xml"/>
+            <include name="**/src/META-INF/*.xml"/>
+        </patternset>
+        <copy todir="${output.dir}">
+            <fileset dir="src">
+                <patternset refid="copy.patterns"/>
+            </fileset>
+        </copy>
+    </target>
+    <!-- =================================================================== -->
+    <!-- Development Deployment                                              -->
+    <!-- =================================================================== -->
+    <target name="dev" depends="clean, init, devmeta, compile"
+            description="Creates a jar file with development configuration files">
+        <echo>Copy all requiered lib files from ${basedir}\lib</echo>
+        <copy todir="${output.jar}/lib">
+            <fileset dir="${basedir}/lib">
+                <include name="/*.jar"/>
+                <include name="/*.dll"/>
+            </fileset>
+        </copy>
+        <copy todir="${output.jar}/bin">
+            <fileset dir="${basedir}/bin">
+                <include name="/*.*"/>
+            </fileset>
+        </copy>
+        <echo>Copy configuration files into classpath</echo>
+        <mkdir dir="${output.jar}/conf"/>
+        <mkdir dir="${output.jar}/bin"/>
+        <mkdir dir="${output.jar}/logs"/>
+        <echo>Pack compiled classes into ${projectName}.jar</echo>
+        <copy file="${basedir}/src/conf/dev-readerboard-ctx.xml" tofile="${output.dir}/conf/readerboard-ctx.xml"
+              overwrite="true"/>
+        <copy file="${basedir}/src/conf/dev-ReaderBoard.properties" tofile="${output.dir}/ReaderBoard.properties"
+              overwrite="true"/>
+        <copy file="${basedir}/src/conf/activeMQ.properties" tofile="${output.dir}/activeMQ.properties"
+              overwrite="true"/>
+        <jar jarfile="${output.jar}/lib/${projectName}.jar" basedir="${output.dir}"/>
+        <copy file="${basedir}/src/conf/wrapper.conf" tofile="${output.jar}/conf/wrapper.conf" overwrite="true"/>
+        <copy file="${basedir}/src/conf/activeMQ.properties" tofile="${output.jar}/bin/activeMQ.properties"
+              overwrite="true"/>
+        <copy file="${basedir}/src/conf/dev-ReaderBoard.properties" tofile="${output.jar}/bin/ReaderBoard.properties"
+              overwrite="true"/>
+    </target>
+    <!-- =================================================================== -->
+    <!-- Production Deployment                                              -->
+    <!-- =================================================================== -->
+    <target name="prod" depends="clean, init, prodmeta, compile"
+            description="Creates a jar file with Productiion configuration files">
+        <echo>Copy all requiered lib files from ${basedir}\lib</echo>
+        <copy todir="${output.jar}/lib">
+            <fileset dir="${basedir}/lib">
+                <include name="/*.jar"/>
+                <include name="/*.dll"/>
+            </fileset>
+        </copy>
+        <copy todir="${output.jar}/bin">
+            <fileset dir="${basedir}/bin">
+                <include name="/InstallService-NT.*"/>
+                <include name="/UninstalService-NT.*"/>
+                <include name="/wrapper.*"/>
+            </fileset>
+        </copy>
+        <echo>Copy configuration files into classpath</echo>
+        <mkdir dir="${output.jar}/conf"/>
+        <mkdir dir="${output.jar}/bin"/>
+        <mkdir dir="${output.jar}/logs"/>
+        <echo>Pack compiled classes into ${projectName}.jar</echo>
+        <copy file="${basedir}/src/conf/prod-readerboard-ctx.xml" tofile="${output.dir}/conf/readerboard-ctx.xml"
+              overwrite="true"/>
+        <copy file="${basedir}/src/conf/prod-ReaderBoard.properties" tofile="${output.dir}/ReaderBoard.properties"
+              overwrite="true"/>
+        <copy file="${basedir}/src/conf/activeMQ.properties" tofile="${output.dir}/activeMQ.properties"
+              overwrite="true"/>
+        <jar jarfile="${output.jar}/lib/${projectName}.jar" basedir="${output.dir}"/>
+        <copy file="${basedir}/src/conf/wrapper.conf" tofile="${output.jar}/conf/wrapper.conf" overwrite="true"/>
+        <copy file="${basedir}/src/conf/activeMQ.properties" tofile="${output.jar}/bin/activeMQ.properties"
+              overwrite="true"/>        
+    </target>
+    <!-- =================================================================== -->
+    <!-- Development in Java IDE                                       -->
+    <!-- =================================================================== -->
+    <target name="ide" description="Moves dev config file to enable running of application in Java IDE">
+        <echo>Copy dev config file into app root</echo>
+        <copy file="${basedir}/src/conf/dev-readerboard-ctx.xml" tofile="${basedir}/src/conf/readerboard-ctx.xml"
+              overwrite="true"/>
+        <copy file="${basedir}/src/conf/dev-ReaderBoard.properties" tofile="${basedir}/ReaderBoard.properties"
+              overwrite="true"/>
+        <copy file="${basedir}/src/conf/activeMQ.properties" tofile="${basedir}/activeMQ.properties" overwrite="true"/>
+        <copy file="${basedir}/src/conf/dev-persistence.xml" tofile="${basedir}/src/META-INF/persistence.xml"
+              overwrite="true"/>
+    </target>
+    <!-- =================================================================== -->
+    <!-- SVN                                                                -->
+    <!-- =================================================================== -->
+    <target name="svn" depends="clean" description="Removes extra config files">
+        <echo>Removes extra config files</echo>
+        <delete file="${basedir}/src/conf/readerboard-ctx.xml" />
+        <delete file="${basedir}/ReaderBoard.properties" />
+        <delete file="${basedir}/activeMQ.properties" />
+    </target>    
+</project>
